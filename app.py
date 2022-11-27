@@ -25,6 +25,7 @@ def add_leading_zeros_to_time_periods(x: str) -> str:
 
     return "{}h{}-{}h{}".format(*h_m_h_m)
 
+
 df = pd.read_excel("dashboard.xlsx")
 
 df['Time_Period'] = df['Time_Period'].apply(add_leading_zeros_to_time_periods)
@@ -203,7 +204,7 @@ app.layout = html.Div([
 
     dcc.Dropdown(id="slct_chart",
                  options=[
-                     {"label": "Ratio of success/total calls by date", "value": "success_fail_by_date"}, # we could read it from the data
+                     {"label": "Ratio of success/total calls by date", "value": "success_fail_by_date"},
                      {"label": "Ratio of success/total calls by state", "value": "success_fail_by_state"},
                      {"label": "Piechart with failure-success-timeout percentage", "value": "success_fail_piechart"},
                      {"label": "Double Piechart", "value": "double_piechart"},
@@ -219,6 +220,7 @@ app.layout = html.Div([
     dcc.Graph(id='my_map', figure={})
 ])
 
+
 @app.callback(
     [Output(component_id='output_container', component_property='children'),
      Output(component_id='my_map', component_property='figure')],
@@ -230,5 +232,5 @@ def update_graph(option_slctd):
     return container, fig
 
 
-if __name__ == "__main__":
-    app.run_server("0.0.0.0", debug = False, port=int(os.environ.get('PORT',8000)))
+if __name__ == '__main__':
+    app.run_server(debug=True, port=3000)
