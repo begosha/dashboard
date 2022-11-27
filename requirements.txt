@@ -5,8 +5,5 @@ dash-table==5.0.0
 numpy==1.23.5
 pandas==1.5.2
 plotly==5.11.0
-python-apt==2.0.0+ubuntu0.20.4.6
-python-dateutil==2.8.2
-python-debian===0.1.36ubuntu1
-python-xlib==0.23
+
 
