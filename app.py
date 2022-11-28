@@ -2,6 +2,7 @@ import pandas as pd
 import plotly
 import plotly.graph_objects as go
 from dash import Dash, html, dcc, Input, Output
+import os
 
 
 layout = plotly.graph_objs.Layout(
@@ -196,7 +197,6 @@ function_pointers = {
 }
 
 app = Dash(__name__)
-server = app.server
 
 app.layout = html.Div([
 
@@ -233,4 +233,6 @@ def update_graph(option_slctd):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True, port=3000)
+    app.run_server("0.0.0.0", debug=False, port=int(os.environ.get('PORT', 8000)))
+
+server = app.server
