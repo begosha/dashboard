@@ -197,6 +197,7 @@ function_pointers = {
 }
 
 app = Dash(__name__)
+server = app.server
 
 app.layout = html.Div([
 
@@ -235,4 +236,3 @@ def update_graph(option_slctd):
 if __name__ == '__main__':
     app.run_server("0.0.0.0", debug=False, port=int(os.environ.get('PORT', 8000)))
 
-server = app.server
